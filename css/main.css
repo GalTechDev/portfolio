@@ -1,134 +1,165 @@
+:root {
+  --color_grad_1 : #000000;
+  --color_grad_2 : #3533cd;
+  
+}
+
 * {
   box-sizing: border-box;
 }
+
 body {
-  font-size: 14px;
   margin: 0px;
-  background-color: black;
+  background : linear-gradient(90deg, var(--color_grad_1) 0%, var(--color_grad_2) 100%);
+  
+  color: rgba(255,255,255,1);
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 20px;
+  font-style:;
 }
 
-.page {
+svg {
+  width: 50px;
+  height: 50px;
+}
+
+body {
+  width: calc(90% - 20px);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+}
+
+body {
+  margin: calc(5% + 10px);
+}
+
+section {
+  min-width: 350px;
+  width: calc(100% - 20px);
+  margin: 10px;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+.top-wave { 
   width: 100%;
-  height: 100%;
-  opacity: 1;
-  overflow: hidden;
+  height: 50vh;
+  margin: 0px;
 }
-.left-content {
-  display: flex;
-  flex-direction: column;
-  margin: 15px;
-  opacity: 1;
-  overflow: hidden;
-}
-.author {
-  color: rgba(1,210,230,1);
-  top: 0px;
+
+.top-wave svg {
+  position: absolute;
   left: 0px;
-  font-family: JetBrains Mono;
-  font-weight: Regular;
-  font-size: 48px;
-  opacity: 1;
-  text-align: left;
+  top: 0px;
 }
-.title {
-  color: rgba(255,255,255,1);
-  font-family: JetBrains Mono;
-  font-weight: ExtraBold;
-  font-size: 64px;
-  opacity: 1;
-  text-align: left;
+
+#coordonnees ul li p {
+  margin-left: 10px;
 }
-.content {
-  color: rgba(255,255,255,1);
-  font-family: JetBrains Mono;
-  font-weight: Medium;
-  font-size: 32px;
-  opacity: 1;
-  text-align: left;
+
+#coordonnees ul li a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
 }
-.right-content {
+
+#coordonnees ul li a:hover {
+  text-decoration: underline;
+}
+
+#coordonnees ul li {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#coordonnees {
+  width: calc(50% - 20px);
+  margin: 10px;
+  font-size: 20px;
+}
+
+#specialisations {
+  width: calc(50% - 20px);
+  margin: 10px;
+  font-size: 20px;
+}
+
+.rich-section ul{
+  display: flex;
+  justify-content: space-around;
+}
+
+.rich-section li{
+  list-style: none;
+  width: calc(30% - 20px);
+  margin: 10px;
+  margin-bottom: 15px;
+}
+
+.rich-section .section-content ul{
+  display: block;
+  padding: 0px;
+}
+
+.rich-section .section-content ul li{
+  list-style: inside;
+  margin: 0px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.rich-section section {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin: 49px;
+}
+
+.linked-section {
+  transition: all .3s ease-in-out;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+}
+
+.linked-section a{
+  transition: all .3s ease-in-out;
+  font-size: 20px;
+  opacity: 0;
+  margin-bottom: 5px;
+}
+
+.linked-section:hover a{
+  transition: all .3s ease-in-out;
   opacity: 1;
-  overflow: hidden;
-}
-.image-profile {
-  opacity: 1;
-  overflow: hidden;
 }
 
-.image-profile img {
-  box-sizing: border-box;
-
-  width: 291px;
-  height: 282px;
-  border-radius: 9999px;
-
+.linked-section:hover {
+  transition: all .3s ease-in-out;
+  background: rgba(0, 0, 0, 0.3)
 }
 
-.links {
+.linked-section div {
   display: flex;
-  flex-direction: row;
-  margin: 49px;
-  opacity: 1;
-  top: 331px;
-  left: 389px;
-  overflow: hidden;
-}
-.icon {
-  color: #fff;
-  margin: 15px;
+  flex-direction: column;
 }
 
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px;
-    left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
+h1 {
+  font-size: 40px;
 }
 
-.glow-on-hover:active {
-    color: #000
+h2 {
+  font-size: 30px;
+  margin-bottom: 5px;
 }
 
-.glow-on-hover:active:after {
-    background: transparent;
-}
-
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
-
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #111;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-}
-
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
+h3 {
+  font-size: 20px;
+  margin-top: 0px;
+  font-style: italic;
+  font-weight: 100;
 }
