@@ -8,10 +8,12 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0px;
+html {
   background : linear-gradient(90deg, var(--color_grad_1) 0%, var(--color_grad_2) 100%);
-  
+}
+
+body {
+  margin: 0px;  
   color: rgba(255,255,255,1);
   font-family: 'Glacial Indifference', sans-serif;
   font-size: 20px;
