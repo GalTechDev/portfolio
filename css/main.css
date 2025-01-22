@@ -1,6 +1,24 @@
 :root {
-  --color_grad_1 : #000000;
-  --color_grad_2 : #3533cd;
+  --primary : var(--primary-light);
+  --primary-op : var(--primary-op-light);
+  --secondary : var(--secondary-light);
+  --color-grad-1 : var(--color-grad-1-light);
+  --color-grad-2 : var(--color-grad-2-light);
+  --background-hover: var(--background-hover-light);
+  
+  --primary-dark : #ffffff;
+  --primary-op-dark : var(--primary-light);
+  --secondary-dark: #5e17Ee;
+  --color-grad-1-dark : #000000;
+  --color-grad-2-dark : #3533cd;
+  --background-hover-dark : rgba(0, 0, 0, 0.3);
+  
+  --primary-light : #000000;
+  --primary-op-light : var(--primary-dark);
+  --secondary-light : #c2e9fb;
+  --color-grad-1-light : #fdfcfb;
+  --color-grad-2-light : #e2d1c3;
+  --background-hover-light : rgba(255, 255, 255, 0.5);
   
 }
 
@@ -10,12 +28,12 @@
 
 body {
   margin: 0px;
-  background : linear-gradient(90deg, var(--color_grad_1) 0%, var(--color_grad_2) 100%);
+  background : linear-gradient(90deg, var(--color-grad-1) 0%, var(--color-grad-2) 100%);
   
-  color: rgba(255,255,255,1);
+  color: var(--primary);
   font-family: 'Glacial Indifference', sans-serif;
   font-size: 20px;
-  font-style:;
+  overflow-x: hidden;
 }
 
 svg {
@@ -28,6 +46,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin: calc(5% + 10px);
+}
+
+header {
+  width: 100%;
 }
 
 section {
@@ -48,7 +70,7 @@ li {
 }
 
 .top-wave div {
-  position: relative;
+  position: static;
   z-index: 2;
   display: flex;
   justify-content: space-between;
@@ -57,7 +79,7 @@ li {
 }
 
 .top-wave div div{
-  width: 25vw;
+  width: 30vw;
   flex-direction: column;
   
 }
@@ -82,11 +104,28 @@ li {
   
 }
 
-.top-wave svg {
+#top {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   left: 0px;
   top: 0px;
   z-index: 1;
+}
+
+#top div {
+  width: 100%;
+  height: 50px;
+  background-color: var(--secondary); 
+}
+
+#top div a {
+  width: fit-content;
+  height: 100%;
+}
+
+#top div a:hover {
+  cursor: pointer;
 }
 
 #coordonnees ul li p {
@@ -94,7 +133,7 @@ li {
 }
 
 #coordonnees ul li a {
-  color: white;
+  color: var(--primary);
   text-decoration: none;
   margin-left: 15px;
 }
@@ -123,7 +162,9 @@ li {
 
 .rich-section ul{
   display: flex;
-  justify-content: space-around;
+  overflow-x: scroll;
+  overflow-y: clip;
+  padding-bottom: 10px;
 }
 
 .rich-section li{
@@ -174,7 +215,7 @@ li {
 
 .linked-section:hover {
   transition: all .3s ease-in-out;
-  background: rgba(0, 0, 0, 0.3)
+  background: var(--background-hover);
 }
 
 .linked-section div {
