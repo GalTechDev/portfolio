@@ -169,7 +169,7 @@ li {
 
 .rich-section li{
   list-style: none;
-  width: calc(30% - 20px);
+  width: 450px;
   margin: 10px;
   margin-bottom: 15px;
 }
