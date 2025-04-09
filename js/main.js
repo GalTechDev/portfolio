@@ -97,7 +97,7 @@ const data = {
   ]
 }
 
-
+document.addEventListener("DOMContentLoaded", function () {
   // HEADER
   document.querySelector(".title .bold").innerHTML = `${data.nom}<br>${data.prenom}`;
   document.querySelector(".title .thin").innerText = data.poste;
@@ -198,3 +198,4 @@ const data = {
     `;
     projets.appendChild(li);
   });
+});
