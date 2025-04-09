@@ -20,7 +20,7 @@ function applyTheme(theme) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const response = await fetch("data.json");
+  const response = await fetch("/data.json");
   const data = await response.json();
   // HEADER
   document.querySelector(".title .bold").innerHTML = `${data.nom}<br>${data.prenom}`;
