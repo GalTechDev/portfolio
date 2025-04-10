@@ -5,8 +5,8 @@
   "description": "Je suis un technicien avec plus de 5 ans d'expérience dans le secteur de l'informatique. Mes travaux sont principalement des projets personnels ou en partenariat avec l’université et les chercheurs minier de la Nouvelle Calédonie.",
   "photo": "https://bio.galtech.cc/images/profil.jpeg",
   "coordonnees": [
-    { "type": "email", "valeur": "maxence.moreau@example.com" },
-    { "type": "tel", "valeur": "+33 6 00 00 00 00" },
+    { "type": "email", "valeur": "maxence.moreau@galtech.cc" },
+    { "type": "tel", "valeur": "+33 6 24 83 75 48" },
     { "type": "loc", "valeur": "Toulouse, France" },
     { "type": "linkedin", "valeur": "https://www.linkedin.com/in/maxence-moreau-709b5b23b" }
   ],
