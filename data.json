@@ -97,7 +97,7 @@
     {
       "titre": "DataGate",
       "description": "Une application web de gestion de données de recherches",
-      "url": "https://datagate.unc.nc",
+      "url": "https://datagate.unc.nc/datagate/views/home.php",
       "competence": [
         "PHP",
         "PostgreSQL",
