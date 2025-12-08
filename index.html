@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Maxence Moreau - Technicien Supérieur Instruments Météo-France">
+    <title>Maxence Moreau | Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Iframe Modal for Projects -->
+    <div class="iframe-modal" id="iframeModal">
+        <div class="iframe-modal-header">
+            <span class="iframe-modal-title" id="iframeTitle">Projet</span>
+            <div class="iframe-modal-actions">
+                <button class="iframe-close-btn" id="iframeCloseBtn" title="Fermer">✕</button>
+            </div>
+        </div>
+        <div class="iframe-container">
+            <div class="iframe-loading" id="iframeLoading">
+                <div class="loading-spinner"></div>
+                <span>Chargement...</span>
+            </div>
+            <iframe id="projectIframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Maxence Moreau</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#experiences">Parcours</a></li>
+                <li><a href="#projets">Projets</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <img src="images/profil.jpeg" alt="Photo de Maxence Moreau" class="hero-photo">
+            <span class="hero-badge">🌤️ Technicien Supérieur Instruments — Météo France</span>
+            <h1>
+                <span class="gradient-text">MAXENCE MOREAU</span>
+            </h1>
+            <p class="hero-subtitle" id="heroDescription">
+                <!-- Populated by JS -->
+            </p>
+
+            <div class="hero-contact" id="heroContact">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#projets" class="btn btn-primary">
+                    🚀 Voir mes projets
+                </a>
+                <a href="#experiences" class="btn btn-secondary">
+                    📖 Mon parcours
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences Section -->
+    <section class="skills-section" id="competences">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Expertise</span>
+                <h2>Compétences Techniques</h2>
+                <p>Un profil alliant informatique et instrumentation météorologique</p>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="skillsChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expériences Section -->
+    <section class="section" id="experiences">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Parcours</span>
+                <h2>Expériences & Formations</h2>
+            </div>
+
+            <div class="grid-2">
+                <!-- Expériences -->
+                <div>
+                    <h3 style="margin-bottom: var(--space-xl); color: var(--accent-primary);">💼 Expériences</h3>
+                    <div class="timeline" id="experienceTimeline">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Formations -->
+                <div>
+                    <h3 style="margin-bottom: var(--space-xl); color: var(--accent-purple);">🎓 Formations</h3>
+                    <div class="timeline" id="formationTimeline">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets Section -->
+    <section class="projects-section" id="projets">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Réalisations</span>
+                <h2>Mes Projets</h2>
+                <p>Cliquez sur un projet pour découvrir les détails</p>
+            </div>
+
+            <div class="grid-3" id="projectsGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                Portfolio de Maxence Moreau — Technicien Supérieur Instruments
+            </p>
+            <div class="footer-links" id="footerLinks">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/charts.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

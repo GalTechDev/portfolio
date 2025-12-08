@@ -1,0 +1,122 @@
+{
+  "nom": "MAXENCE",
+  "prenom": "MOREAU",
+  "poste": "TECHNICIEN INFORMATIQUE",
+  "description": "Passionné par la technologie et l'instrumentation, je combine une expertise technique en informatique et en systèmes de mesure. Fort de plus de 5 ans d'expérience, j'ai collaboré avec des chercheurs et institutions en Nouvelle-Calédonie sur des projets innovants alliant développement logiciel et instrumentation scientifique.",
+  "photo": "https://bio.galtech.cc/images/profil.jpeg",
+  "coordonnees": [
+    {
+      "type": "email",
+      "valeur": "maxence.moreau@meteo.fr"
+    },
+    {
+      "type": "loc",
+      "valeur": "Nouméa, Nouvelle Calédonie"
+    },
+    {
+      "type": "linkedin",
+      "valeur": "https://www.linkedin.com/in/maxence-moreau-709b5b23b"
+    }
+  ],
+  "competences": [],
+  "experiences": [
+    {
+      "titre": "Technicien Supérieur Instruments (TSI)",
+      "description": "Météo France",
+      "competence": [
+        "Maintenance et installation des instruments météorologiques",
+        "Formation TSI à l'École Nationale de la Météorologie (ENM)",
+        "Promotion 2023/2025"
+      ]
+    },
+    {
+      "titre": "Technicien Informatique",
+      "description": "Asset Wings",
+      "competence": [
+        "Technicien Informatique en charge de la veille logiciel et le suivie des infrastructures numériques du groupe Balland (grand groupe commercial de Nouvelle-Calédonie)"
+      ]
+    },
+    {
+      "titre": "Moniteur Informatique",
+      "description": "Université de la Nouvelle Calédonie",
+      "competence": [
+        "En charge de l’installation et le suivie du parc informatique de l’université"
+      ]
+    }
+  ],
+  "formations": [
+    {
+      "titre": "Ecole Nationale de la Météo",
+      "description": "Formation Technicien Supérieur Instrumentation",
+      "competence": [
+        "Certification électrique basse tension",
+        "Contrôler la conformité d'un équipement, d'une machine, d'une installation",
+        "Modifier un équipement automatisé",
+        "Diagnostiquer des dysfonctionnements sur des installations de réseau"
+      ]
+    },
+    {
+      "titre": "Université de la Nouvelle Calédonie",
+      "description": "Licence Informatique",
+      "competence": [
+        "Programmation en Python, Java, PHP, C",
+        "Administration systèmes et réseaux"
+      ]
+    }
+  ],
+  "projets": [
+    {
+      "titre": "ABM-Temp-Analyser",
+      "description": "Chaîne de mesure de température pour colis avec glace carbonique",
+      "url": "https://galtechdev.github.io/ABM-Temp-Analyser/",
+      "competence": [
+        "ESP32",
+        "Python",
+        "Chart.js",
+        "API REST"
+      ]
+    },
+    {
+      "titre": "Understar OS",
+      "description": "Bot Discord dynamique",
+      "competence": [
+        "Python",
+        "API Discord"
+      ]
+    },
+    {
+      "titre": "Cloud v2",
+      "description": "Une interface de gestion de fichier",
+      "competence": [
+        "Python",
+        "Flask",
+        "JavaScript",
+        "Flowbite"
+      ]
+    },
+    {
+      "titre": "DataGate",
+      "description": "Une application web de gestion de données de recherches",
+      "competence": [
+        "PHP",
+        "PostgreSQL",
+        "CAS (Central Authentication Service)"
+      ]
+    },
+    {
+      "titre": "HotReload",
+      "description": "Une librairie python de rechargement de module sans interuption d'execution",
+      "competence": [
+        "Python"
+      ]
+    },
+    {
+      "titre": "GTLib",
+      "description": "Une librairie python basé sur pygame pour simplifier la création d'interface graphique",
+      "competence": [
+        "Python",
+        "Pygame"
+      ]
+    }
+  ]
+}
