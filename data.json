@@ -105,8 +105,9 @@
       ]
     },
     {
-      "titre": "HotReload",
+      "titre": "Hot Import",
       "description": "Une librairie python de rechargement de module sans interuption d'execution",
+      "url": "https://pypi.org/project/hot-import/",
       "competence": [
         "Python"
       ]
