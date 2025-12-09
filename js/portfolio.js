@@ -153,7 +153,14 @@ function renderProjects(projects) {
 }
 
 /**
- * Configure les transitions fluides pour les projets avec iframe
+ * Vérifie si l'URL est une GitHub Pages (peut être intégrée en iframe)
+ */
+function isGitHubPages(url) {
+    return url.includes('github.io') || url.includes('pages.github.com');
+}
+
+/**
+ * Configure les transitions fluides pour les projets avec iframe ou nouvel onglet
  */
 function setupProjectTransitions() {
     const projectCards = document.querySelectorAll('.project-card[data-url]');
@@ -163,7 +170,7 @@ function setupProjectTransitions() {
     const modalTitle = document.getElementById('iframeTitle');
     const loading = document.getElementById('iframeLoading');
 
-    // Ouvrir le modal avec iframe
+    // Ouvrir le modal avec iframe OU nouvel onglet selon l'URL
     projectCards.forEach(card => {
         const url = card.dataset.url;
         if (!url) return;
@@ -171,24 +178,30 @@ function setupProjectTransitions() {
         card.addEventListener('click', () => {
             const title = card.querySelector('.project-title')?.textContent || 'Projet';
 
-            // Configurer le modal
-            modalTitle.textContent = title;
-            loading.classList.remove('hidden');
-            iframe.src = '';
+            // Si c'est une GitHub Pages, ouvrir en iframe
+            if (isGitHubPages(url)) {
+                // Configurer le modal
+                modalTitle.textContent = title;
+                loading.classList.remove('hidden');
+                iframe.src = '';
 
-            // Ouvrir le modal
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+                // Ouvrir le modal
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
 
-            // Charger l'iframe
-            setTimeout(() => {
-                iframe.src = url;
-            }, 100);
+                // Charger l'iframe
+                setTimeout(() => {
+                    iframe.src = url;
+                }, 100);
 
-            // Cacher le loading quand l'iframe est chargé
-            iframe.onload = () => {
-                loading.classList.add('hidden');
-            };
+                // Cacher le loading quand l'iframe est chargé
+                iframe.onload = () => {
+                    loading.classList.add('hidden');
+                };
+            } else {
+                // Sinon, ouvrir dans un nouvel onglet
+                window.open(url, '_blank');
+            }
         });
     });
 

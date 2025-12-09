@@ -9,6 +9,15 @@
 function initTimelineAnimations() {
     const timelineItems = document.querySelectorAll('.timeline-item');
 
+    // Fallback: forcer la visibilité après 2 secondes si l'observer ne fonctionne pas
+    const fallbackTimeout = setTimeout(() => {
+        timelineItems.forEach(item => {
+            if (!item.classList.contains('visible')) {
+                item.classList.add('visible');
+            }
+        });
+    }, 2000);
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -19,11 +28,21 @@ function initTimelineAnimations() {
             }
         });
     }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.1,
+        rootMargin: '50px 0px 50px 0px'
     });
 
     timelineItems.forEach(item => observer.observe(item));
+
+    // Vérifier immédiatement les éléments déjà visibles
+    setTimeout(() => {
+        timelineItems.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                item.classList.add('visible');
+            }
+        });
+    }, 300);
 }
 
 /**

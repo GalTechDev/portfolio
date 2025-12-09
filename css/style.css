@@ -721,27 +721,235 @@ section {
     background-clip: text;
 }
 
-/* Responsive */
+/* Responsive & Mobile Optimizations */
 @media (max-width: 768px) {
+    /* Navigation mobile */
     .nav-links {
         display: none;
     }
-
-    .grid-2,
-    .grid-3 {
-        grid-template-columns: 1fr;
+    
+    .nav-container {
+        padding: 0 var(--space-md);
     }
-
+    
+    /* Reduce spacing on mobile */
+    section {
+        padding: var(--space-2xl) 0;
+    }
+    
+    .container {
+        padding: 0 var(--space-md);
+    }
+    
+    /* Hero adjustments */
+    .hero {
+        padding-top: 60px;
+        min-height: auto;
+        padding-bottom: var(--space-2xl);
+    }
+    
     .hero h1 {
         font-size: 2rem;
     }
-
+    
+    .hero-photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 var(--space-sm);
+    }
+    
     .hero-contact {
         flex-direction: column;
         align-items: center;
+        gap: var(--space-md);
     }
-
+    
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        width: 100%;
+        padding: 0 var(--space-md);
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Grid layouts */
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    /* Charts */
     .chart-container {
-        height: 300px;
+        height: 280px;
+        padding: var(--space-md);
+    }
+    
+    /* Cards - larger touch targets */
+    .card,
+    .project-card {
+        padding: var(--space-lg);
+    }
+    
+    /* Project cards - always show link on mobile */
+    .project-link {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Disable hover transforms on touch devices */
+    .project-card:hover,
+    .card:hover {
+        transform: none;
+    }
+    
+    /* Timeline adjustments */
+    .timeline {
+        padding-left: var(--space-lg);
+    }
+    
+    .timeline-item::before {
+        left: calc(-1 * var(--space-lg) - 5px);
+        width: 12px;
+        height: 12px;
+    }
+    
+    /* Iframe modal fullscreen on mobile */
+    .iframe-modal-header {
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .iframe-modal-title {
+        font-size: 0.95rem;
+    }
+    
+    .iframe-close-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.4rem;
+    }
+    
+    /* Section headers */
+    .section-header {
+        margin-bottom: var(--space-xl);
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Disable hover effects on touch devices */
+    .project-card:hover,
+    .card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .project-card:hover::before {
+        transform: scaleX(0);
+    }
+    
+    /* Larger touch targets (minimum 44px) */
+    .btn {
+        min-height: 44px;
+        padding: var(--space-md) var(--space-lg);
+    }
+    
+    .nav-links a,
+    .hero-contact a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .iframe-close-btn {
+        width: 48px;
+        height: 48px;
+    }
+    
+    /* Active states instead of hover */
+    .project-card:active {
+        transform: scale(0.98);
+        border-color: rgba(0, 212, 255, 0.4);
+    }
+    
+    .btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+    
+    .timeline-item {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .project-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+    
+    .project-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: var(--space-xl) 0;
+    }
+    
+    .hero-photo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+    .nav {
+        padding-left: max(var(--space-lg), env(safe-area-inset-left));
+        padding-right: max(var(--space-lg), env(safe-area-inset-right));
+    }
+    
+    .iframe-modal-header {
+        padding-left: max(var(--space-lg), env(safe-area-inset-left));
+        padding-right: max(var(--space-lg), env(safe-area-inset-right));
     }
 }
