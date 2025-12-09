@@ -140,9 +140,9 @@ function renderProjects(projects) {
                     </div>
                 ` : ''}
                 ${hasUrl ? `
-                    <span class="project-link">
+                    <a class="project-link" href="${project.url}" target="_blank" onclick="event.stopPropagation();">
                         Voir le projet →
-                    </span>
+                    </a>
                 ` : ''}
             </div>
         `;
