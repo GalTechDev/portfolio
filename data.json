@@ -66,6 +66,17 @@
   ],
   "projets": [
     {
+      "titre": "py-osrm-backend",
+      "description": "Une implementation en Python du backend OSRM (Open Source Routing Machine)",
+      "url": "https://galtechdev.github.io/py-osrm-backend/",
+      "competence": [
+        "Python",
+        "Flask",
+        "OSM",
+        "pypi"
+      ]
+    },
+    {
       "titre": "ABM-Temp-Analyser",
       "description": "Chaîne de mesure de température pour colis avec glace carbonique",
       "url": "https://galtechdev.github.io/ABM-Temp-Analyser/",
