@@ -78,6 +78,17 @@
       ]
     },
     {
+      "titre": "Code Academie",
+      "description": "Un site web sandbox pour apprendre à coder",
+      "url": "https://galtechdev.github.io/Code-Academie/",
+      "competence": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "SQL"
+      ]
+    },
+    {
       "titre": "Understar OS",
       "description": "Bot Discord dynamique",
       "competence": [
