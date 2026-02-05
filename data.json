@@ -77,6 +77,18 @@
       ]
     },
     {
+      "titre": "OpenVM",
+      "description": "Plateforme web de gestion de machines virtuelles Docker avec terminal SSH intégré, explorateur de fichiers et panneau d'administration complet.",
+      "url": "https://galtechdev.github.io/OpenVM/",
+      "competence": [
+        "Python",
+        "Flask",
+        "Javascript",
+        "Docker",
+        "SQL"
+      ]
+    },
+    {
       "titre": "ABM-Temp-Analyser",
       "description": "Chaîne de mesure de température pour colis avec glace carbonique",
       "url": "https://galtechdev.github.io/ABM-Temp-Analyser/",
