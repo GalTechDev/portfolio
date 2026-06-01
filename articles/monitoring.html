@@ -1,0 +1,154 @@
+<div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-8">
+        <div class="flex items-center gap-4 mb-4">
+            <span class="font-code-snippet text-[12px] text-[#006df8] border border-[#006df8] px-3 py-1">PROJET DE FIN D'ÉTUDES</span>
+            <span class="font-label-caps text-[14px] text-on-surface-variant flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                JUILLET 2025
+            </span>
+        </div>
+        <h1 class="font-display-lg text-[32px] md:text-[48px] text-on-background uppercase tracking-tight leading-tight mb-6">
+            Conception d'une Chaîne d'Acquisition de A à Z : L'Expérience ABM
+        </h1>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="w-full h-[400px] md:h-[500px] mb-12 border-4 border-outline-variant shadow-lg relative overflow-hidden bg-surface-container">
+        <!-- Remplacez src par une vraie photo du boitier ou de la glace carbonique -->
+        <img src="/assets/colis.jpeg" alt="Glace carbonique et électronique" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Article Body -->
+    <div class="font-body-base text-[16px] md:text-[18px] text-on-surface leading-relaxed space-y-8 pb-12">
+        <p class="text-[20px] font-medium text-primary">
+            Comment garantir le suivi thermique à -78.5°C de produits sensibles lors de leur transport sous glace carbonique ? Pour mon projet de fin d'études de Technicien Supérieur Instruments à l'ENM, j'ai répondu à ce défi pour la société ABM en concevant l'intégralité d'un système de monitoring.
+        </p>
+        
+        <h2 class="font-headline-md text-[24px] text-on-background uppercase mt-8 mb-4 border-b border-outline-variant pb-2">Le Défi : Mesurer à des températures cryogéniques</h2>
+        <p>
+            La glace carbonique a une propriété fascinante : la <strong>sublimation</strong>. Elle passe de l'état solide à l'état gazeux sans devenir liquide, à une température constante de -78.5°C. L'enjeu pour ABM était de comprendre précisément la dynamique thermique de leurs colis isothermes : combien de temps le "plateau" de froid tient-il en fonction du poids de glace intégré ?
+        </p>
+
+        <h2 class="font-headline-md text-[24px] text-on-background uppercase mt-8 mb-4 border-b border-outline-variant pb-2">Le Hardware : ESP32 et PT100</h2>
+        <p>
+            Pour mesurer des températures aussi extrêmes avec précision et stabilité, j'ai fait le choix d'une <strong>sonde de platine PT100 (classe A)</strong>. Contrairement aux thermocouples ou aux thermistances basiques, le platine offre une linéarité parfaite et une stabilité exceptionnelle dans le temps.
+        </p>
+        <div class="bg-surface-container-lowest border border-outline-variant p-6 shadow-sm my-8">
+            <h4 class="font-code-snippet text-[14px] text-primary uppercase mb-2">L'architecture électronique</h4>
+            <ul class="list-disc pl-6 space-y-2 font-body-sm text-[15px] text-on-surface-variant">
+                <li><strong class="text-on-surface">Microcontrôleur ESP32 :</strong> Le cerveau du système, choisi pour son excellent rapport puissance/prix et son module Wi-Fi intégré.</li>
+                <li><strong class="text-on-surface">Conditionnement (MAX31865) :</strong> Un convertisseur analogique-numérique spécifique pour les RTD, communiquant en SPI, indispensable pour traduire la résistance de la PT100 en valeur numérique.</li>
+                <li><strong class="text-on-surface">Alimentation :</strong> Une Power Bank de 20 000mAh offrant une autonomie de plus de 4 jours pour un suivi en continu.</li>
+            </ul>
+        </div>
+        <p>
+            J'ai également conçu un boîtier sur-mesure afin de protéger l'électronique de la condensation et du froid, seule la sonde étant plongée au cœur de la glace carbonique.
+        </p>
+
+        <h2 class="font-headline-md text-[24px] text-on-background uppercase mt-8 mb-4 border-b border-outline-variant pb-2">Un Firmware Robuste</h2>
+        <p>
+            En instrumentation, la perte de données n'est pas tolérable. Le firmware embarqué (développé en C++ sur l'Arduino IDE) n'est pas un simple script d'envoi. J'ai implémenté un système de <strong>file d'attente (buffer) sur la mémoire flash non-volatile (LittleFS)</strong> de l'ESP32.
+        </p>
+        <p>
+            Lorsqu'une mesure est prise, l'ESP32 tente de l'envoyer au serveur via Wi-Fi (requête HTTPS POST formatée en JSON). S'il y a une coupure réseau, la mesure est stockée localement. Au retour de la connexion, tout le retard est automatiquement synchronisé. Ce mécanisme de "store and forward" a sauvé mes campagnes de mesure lors de coupures électriques imprévues.
+        </p>
+
+        <!-- SVG Animation du Réseau -->
+        <div class="my-12">
+            <h3 class="font-label-caps text-[12px] text-outline mb-2 text-center">ARCHITECTURE DE LA CHAÎNE D'ACQUISITION</h3>
+            <div class="relative w-full h-[350px] bg-surface-bright border border-outline-variant rounded shadow-inner overflow-hidden">
+                <svg width="100%" height="100%" viewBox="0 0 800 350" preserveAspectRatio="xMidYMid meet"
+                    class="absolute inset-0">
+                    <defs>
+                        <!-- Capteur à ESP32 -->
+                        <path id="path-sensor-esp" d="M 150 175 L 350 175" />
+                        <!-- ESP32 à PFC -->
+                        <path id="path-esp-pfc" d="M 350 175 L 550 175" />
+                        <!-- PFC à PFV -->
+                        <path id="path-pfc-pfv" d="M 550 175 L 700 175" />
+                    </defs>
+
+                    <!-- Lignes de base -->
+                    <g stroke="currentColor" class="text-outline-variant" stroke-width="1.5" fill="none" stroke-dasharray="4 4">
+                        <use href="#path-sensor-esp" />
+                        <use href="#path-esp-pfc" />
+                        <use href="#path-pfc-pfv" />
+                    </g>
+
+                    <!-- Paquets de données animés -->
+                    <g>
+                        <!-- SPI data (fast) -->
+                        <circle r="3" class="text-primary" fill="currentColor">
+                            <animateMotion dur="1s" repeatCount="indefinite">
+                                <mpath href="#path-sensor-esp" />
+                            </animateMotion>
+                        </circle>
+                        <!-- Wi-Fi JSON data (medium) -->
+                        <circle r="4" class="text-[#10b981]" fill="currentColor">
+                            <animateMotion dur="2s" repeatCount="indefinite">
+                                <mpath href="#path-esp-pfc" />
+                            </animateMotion>
+                        </circle>
+                        <!-- WebSocket data (fast) -->
+                        <circle r="3" class="text-secondary" fill="currentColor">
+                            <animateMotion dur="1.5s" repeatCount="indefinite">
+                                <mpath href="#path-pfc-pfv" />
+                            </animateMotion>
+                        </circle>
+                    </g>
+
+                    <!-- Labels de connexion -->
+                    <g class="font-code-snippet text-[10px] font-bold" fill="currentColor">
+                        <text x="250" y="165" text-anchor="middle" class="text-outline">SPI</text>
+                        <text x="450" y="165" text-anchor="middle" class="text-primary">Wi-Fi (HTTPS / JSON)</text>
+                        <text x="625" y="165" text-anchor="middle" class="text-secondary">WebSocket</text>
+                    </g>
+
+                    <!-- Noeuds -->
+                    
+                    <!-- Capteur -->
+                    <g transform="translate(150, 175)">
+                        <circle r="14" fill="#e2e8f0" stroke="currentColor" style="stroke: var(--on-surface)" stroke-width="2" />
+                        <text x="0" y="30" text-anchor="middle" fill="currentColor" class="text-on-surface font-label-caps text-[11px] font-bold">SONDE PT100</text>
+                    </g>
+
+                    <!-- ESP32 -->
+                    <g transform="translate(350, 175)">
+                        <rect x="-20" y="-15" width="40" height="30" rx="4" fill="#e2e8f0" stroke="currentColor" style="stroke: var(--on-surface)" stroke-width="2" />
+                        <text x="0" y="35" text-anchor="middle" fill="currentColor" class="text-on-surface font-label-caps text-[11px] font-bold">ESP32 + MAX31865</text>
+                    </g>
+
+                    <!-- PFC -->
+                    <g transform="translate(550, 175)">
+                        <rect x="-25" y="-20" width="50" height="40" rx="4" fill="#e2e8f0" stroke="currentColor" style="stroke: var(--on-surface)" stroke-width="2" />
+                        <circle r="4" fill="currentColor" class="text-primary animate-ping-slow" />
+                        <text x="0" y="40" text-anchor="middle" fill="currentColor" class="text-on-surface font-label-caps text-[11px] font-bold">SERVEUR PFC (FLASK)</text>
+                    </g>
+
+                    <!-- PFV -->
+                    <g transform="translate(700, 175)">
+                        <rect x="-20" y="-15" width="40" height="30" rx="2" fill="#e2e8f0" stroke="currentColor" style="stroke: var(--on-surface)" stroke-width="2" />
+                        <path d="M-10 5 L10 5" stroke="currentColor" style="stroke: var(--on-surface)" stroke-width="2" />
+                        <text x="0" y="35" text-anchor="middle" fill="currentColor" class="text-on-surface font-label-caps text-[11px] font-bold">PFV (VISUALISATION)</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <h2 class="font-headline-md text-[24px] text-on-background uppercase mt-8 mb-4 border-b border-outline-variant pb-2">Le Backend : Collecte et Visualisation</h2>
+        <p>
+            Le matériel ne fait pas tout : il faut exploiter les données. J'ai développé une <strong>Plateforme de Concentration (PFC)</strong> en Python avec Flask et SQLite :
+        </p>
+        <ul class="list-disc pl-6 space-y-2 font-body-base text-on-surface-variant mb-6">
+            <li><strong>L'API de réception :</strong> Un point d'entrée sécurisé pour valider et stocker les payloads JSON.</li>
+            <li><strong>Le Temps Réel :</strong> L'intégration de WebSockets permettait d'actualiser instantanément les courbes sur l'interface Web des utilisateurs dès qu'une nouvelle mesure arrivait.</li>
+            <li><strong>L'Intelligence (Modélisation) :</strong> J'ai développé un algorithme de régression linéaire en Python pour <strong>prédire</strong> la durée du maintien du plateau froid en fonction de la masse de glace carbonique. Ce module incluait aussi une fonction de dichotomie pour conseiller le poids exact de glace nécessaire selon le temps de transport cible !</li>
+        </ul>
+
+        <h2 class="font-headline-md text-[24px] text-on-background uppercase mt-8 mb-4 border-b border-outline-variant pb-2">Conclusion</h2>
+        <p>
+            Des soudures du MAX31865 jusqu'à l'implémentation du WebSocket en Python, ce projet m'a permis d'avoir une vision complète de l'ingénierie d'un système IoT industriel. Maîtriser de bout en bout la création d'un instrument, depuis la physique de son capteur jusqu'à la mise en page de la base de données, est l'un des piliers de mon approche métier aujourd'hui.
+        </p>
+    </div>
+</div>

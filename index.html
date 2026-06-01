@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html class="light" lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PORTFOLIO | ARCHIVE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#0056c6",
+                        "on-tertiary-container": "#fefcff",
+                        "surface-dim": "#d8dadc",
+                        "secondary-fixed": "#75ff68",
+                        "on-secondary-fixed-variant": "#005306",
+                        "secondary": "#006e0b",
+                        "outline": "#727787",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c2c6d8",
+                        "surface-bright": "#f7f9fb",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed-variant": "#00429c",
+                        "primary-fixed": "#d9e2ff",
+                        "on-surface-variant": "#424655",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#545c72",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-primary-fixed": "#001945",
+                        "tertiary-fixed": "#dae2fd",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b0c6ff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#0058cb",
+                        "on-primary-container": "#fefcff",
+                        "on-secondary-container": "#00710b",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#002201",
+                        "on-surface": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed-dim": "#2de533",
+                        "primary-container": "#006df8",
+                        "surface": "#f7f9fb",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#6c748b",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "secondary-container": "#4efd4a",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "section-padding": "80px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-base": ["Inter"],
+                        "display-lg": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["JetBrains Mono"],
+                        "code-snippet": ["JetBrains Mono"],
+                        "display-lg-mobile": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-base": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "code-snippet": ["13px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-base antialiased flex h-screen overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+
+    <!-- Animated Cloud Canvas Background -->
+    <canvas id="cloud-bounce-canvas" class="fixed inset-0 w-full h-full -z-10 pointer-events-none opacity-50"></canvas>
+
+    <!-- Mobile Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-30 hidden transition-opacity duration-300 opacity-0">
+    </div>
+
+    <!-- SideNavBar (Mobile + Desktop) -->
+    <aside id="sidebar"
+        class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-surface-bright border-r border-outline-variant z-40 transition-transform duration-300 -translate-x-full md:translate-x-0">
+        <!-- Header -->
+        <div class="p-6 border-b border-outline-variant relative">
+            <!-- Close button for mobile -->
+            <button id="close-menu-btn" class="md:hidden absolute top-4 right-4 text-outline hover:text-primary">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-primary">MON PROFIL</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nav Links -->
+        <nav class="flex-1 py-4 flex flex-col gap-1 overflow-y-auto">
+            <a href="#" data-target="presentation"
+                class="nav-link flex items-center gap-4 px-6 py-4 cursor-pointer transition-all bg-primary-container text-on-primary-container border-r-4 border-primary">
+                <span class="material-symbols-outlined fill-icon">person</span>
+                <span class="font-label-caps text-label-caps uppercase">PRÉSENTATION</span>
+            </a>
+
+            <a href="#" data-target="home"
+                class="nav-link flex items-center gap-4 px-6 py-4 cursor-pointer text-on-surface-variant hover:bg-surface-container transition-all">
+                <span class="material-symbols-outlined">route</span>
+                <span class="font-label-caps text-label-caps uppercase">PARCOURS</span>
+            </a>
+
+            <a href="#" data-target="repos"
+                class="nav-link flex items-center gap-4 px-6 py-4 cursor-pointer text-on-surface-variant hover:bg-surface-container transition-all">
+                <span class="material-symbols-outlined">code</span>
+                <span class="font-label-caps text-label-caps uppercase">PROJETS</span>
+            </a>
+
+            <a href="#" data-target="blog"
+                class="nav-link flex items-center gap-4 px-6 py-4 cursor-pointer text-on-surface-variant hover:bg-surface-container transition-all">
+                <span class="material-symbols-outlined">feed</span>
+                <span class="font-label-caps text-label-caps uppercase">JOURNAL</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col min-w-0 md:ml-64 h-screen overflow-y-scroll relative data-grid-pattern">
+
+        <!-- TopAppBar -->
+        <header
+            class="w-full top-0 sticky shrink-0 bg-surface/90 backdrop-blur-sm border-b border-outline-variant flex justify-between items-center h-16 px-gutter z-30">
+            <div class="flex items-center gap-4">
+                <!-- Hamburger Button (Mobile) -->
+                <button id="open-menu-btn"
+                    class="md:hidden text-primary p-2 -ml-2 rounded hover:bg-surface-container-low transition-colors">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <h1 class="font-display-lg text-[20px] md:text-display-lg-mobile text-primary tracking-tighter uppercase"
+                    id="topbar-title">PRÉSENTATION</h1>
+            </div>
+            
+            <!-- Bouton Contact Overlay -->
+            <button id="btn-open-contact" class="btn-open-contact flex items-center gap-2 px-4 py-2 bg-surface-container-low hover:bg-surface-container border border-outline-variant rounded-full text-primary shadow-sm transition-all hover:shadow-md" title="Ouvrir le badge de contact">
+                <span class="hidden md:inline font-label-lg font-bold">CONTACT</span>
+                <span class="material-symbols-outlined text-[20px]">badge</span>
+            </button>
+        </header>
+
+        <!-- VIEW WRAPPER -->
+        <main class="flex-1 flex flex-col">
+
+            <!-- ============================================== -->
+            <!-- VUE 0 : PRESENTATION                           -->
+            <!-- ============================================== -->
+            <div id="view-presentation"
+                class="view-section active w-full flex-1 relative overflow-hidden group cursor-pointer">
+                <div
+                    class="w-full h-full flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 p-4 md:p-12">
+
+                    <!-- Avatar Sprite (Compagnon & Photo) -->
+                    <div class="relative z-10 w-[200px] h-[200px] md:w-[400px] md:h-[400px] flex-shrink-0 pointer-events-none"
+                        id="presentation-avatar-container">
+                        <!-- COMPAGNON INTERACTIF INJECTÉ ICI -->
+                        <div id="companion-container"
+                            class="w-full h-full relative transition-opacity duration-500 opacity-100">
+                            <!-- Vêtement -->
+                            <object id="comp-hoodie" class="comp-layer comp-hoodie" data="assets/image_sans_visage.svg"
+                                type="image/svg+xml"></object>
+                            <!-- Yeux SVG -->
+                            <svg id="comp-eyes-layer" class="comp-layer comp-eyes-layer" viewBox="0 0 2048 2048">
+                                <g id="left-eye-group" transform="translate(890, 600) scale(0.55)">
+                                    <circle id="left-pupil" cx="0" cy="0" r="30" fill="#111111" />
+                                    <circle id="left-reflection" cx="-12" cy="-12" r="8" fill="#ffffff" />
+                                </g>
+                                <g id="right-eye-group" transform="translate(1078, 600) scale(0.55)">
+                                    <circle id="right-pupil" cx="0" cy="0" r="30" fill="#111111" />
+                                    <circle id="right-reflection" cx="-12" cy="-12" r="8" fill="#ffffff" />
+                                </g>
+                            </svg>
+                            <!-- Visage -->
+                            <object id="comp-face" class="comp-layer comp-face" data="assets/image_visage_sans_yeux.svg"
+                                type="image/svg+xml"></object>
+                        </div>
+
+                        <!-- PHOTO REVEAL -->
+                        <div id="photo-container"
+                            class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-500 flex justify-center items-center">
+                            <img src="assets/profil.jpeg" alt="Maxence Moreau"
+                                class="h-full w-auto object-cover border-4 border-outline-variant shadow-md">
+                        </div>
+                    </div>
+
+                    <!-- Dialogue Box -->
+                    <div class="w-full max-w-2xl z-20" id="dialogue-box">
+                        <div
+                            class="bg-surface-container-lowest border-2 border-outline-variant shadow-lg relative p-6 md:p-8">
+                            <!-- Name Badge -->
+                            <div id="dialogue-name"
+                                class="absolute -top-4 left-6 bg-primary text-on-primary font-headline-md px-4 py-1 text-[16px] shadow-sm uppercase tracking-wider transition-colors duration-300">
+                                GalTech
+                            </div>
+
+                            <!-- Text Content -->
+                            <div class="font-code-snippet text-[14px] md:text-[18px] text-on-surface-variant leading-relaxed min-h-[100px] md:min-h-[120px]"
+                                id="dialogue-text">
+                                <!-- Le texte sera injecté ici par JS -->
+                            </div>
+
+                            <!-- Next Indicator -->
+                            <div class="absolute bottom-4 right-4 text-primary opacity-0 transition-opacity duration-200 flex items-center gap-2"
+                                id="dialogue-next">
+                                <span class="font-label-caps text-[10px] hidden md:inline">CLIQUER OU SCROLLER</span>
+                                <span
+                                    class="material-symbols-outlined fill-icon text-[24px] animate-bounce">arrow_drop_down</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- VUE 1 : PARCOURS (Timeline & Carte Interactive)-->
+            <!-- ============================================== -->
+            <div id="view-home" class="view-section w-full p-margin-mobile md:p-gutter">
+                <div class="max-w-container-max mx-auto w-full">
+
+                    <!-- Section Header -->
+                    <div class="mb-12 border-b border-outline-variant pb-4">
+                        <h2
+                            class="font-display-lg text-display-lg-mobile md:text-[32px] text-on-background uppercase tracking-tight">
+                            TRAJECTOIRE</h2>
+                        <p
+                            class="font-body-base text-body-base text-on-surface-variant mt-2 min-h-[50px] md:min-h-[60px]">
+                            Découvrez mon évolution professionnelle et géographique. Scrollez pour avancer sur la carte.
+                        </p>
+                    </div>
+
+                    <!-- Contenu -->
+                    <div class="flex flex-col lg:flex-row gap-8 relative">
+
+                        <!-- Colonne de gauche : Timeline (Texte) -->
+                        <div class="flex-1 lg:w-1/2 pb-32">
+
+                            <div class="relative border-l-2 border-outline-variant pl-8 md:pl-12 ml-4 space-y-12 py-12">
+                                <!-- Ligne pointillée décorative ou ligne solide est déjà gérée par border-l-2 -->
+
+                                <!-- Etape 1 : BAC -->
+                                <div class="timeline-step group min-h-[70vh] flex flex-col justify-center relative"
+                                    data-step="noumea-bac">
+                                    <div
+                                        class="absolute top-1/2 -translate-y-1/2 -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 group-hover:bg-primary transition-colors">
+                                    </div>
+                                    <div class="font-label-caps text-[12px] text-primary mb-2 flex items-center gap-2">
+                                        DIPLÔME
+                                    </div>
+                                    <h3 class="font-headline-md text-[24px] mb-2">Baccalauréat</h3>
+                                    <p class="font-code-snippet text-[12px] text-outline mb-4">LYCÉE LAPÉROUSE, NOUMÉA
+                                        (NC)</p>
+                                    <div
+                                        class="p-6 border border-outline-variant bg-surface-bright shadow-sm transition-colors group-hover:border-primary/50">
+                                        <ul
+                                            class="font-body-base text-[15px] text-on-surface-variant space-y-3 list-none">
+                                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-primary mt-1">play_arrow</span>
+                                                Baccalauréat Général.</li>
+                                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-primary mt-1">play_arrow</span>
+                                                Spécialités : Mathématiques, NSI (Numérique et Sciences Informatiques)
+                                                et Physique-Chimie.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Etape 2 : UNC -->
+                                <div class="timeline-step group min-h-[70vh] flex flex-col justify-center relative"
+                                    data-step="noumea-lic">
+                                    <div
+                                        class="absolute top-1/2 -translate-y-1/2 -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 group-hover:bg-primary transition-colors">
+                                    </div>
+                                    <div class="font-label-caps text-[12px] text-primary mb-2 flex items-center gap-2">
+                                        FORMATION & EMPLOI
+                                    </div>
+                                    <h3 class="font-headline-md text-[24px] mb-2">Licence Informatique & Moniteur</h3>
+                                    <p class="font-code-snippet text-[12px] text-outline mb-4">UNIVERSITÉ DE LA
+                                        NOUVELLE-CALÉDONIE</p>
+                                    <div
+                                        class="p-6 border border-outline-variant bg-surface-bright shadow-sm transition-colors group-hover:border-primary/50">
+                                        <ul
+                                            class="font-body-base text-[15px] text-on-surface-variant space-y-3 list-none">
+                                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-primary mt-1">play_arrow</span>
+                                                Cursus en Licence Informatique.</li>
+                                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-primary mt-1">play_arrow</span>
+                                                Moniteur informatique en parallèle : installation et suivi complet du
+                                                parc informatique de l'université.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Etape 3 : Asset Wings -->
+                                <div class="timeline-step group min-h-[70vh] flex flex-col justify-center relative"
+                                    data-step="noumea-asset">
+                                    <div
+                                        class="absolute top-1/2 -translate-y-1/2 -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 group-hover:bg-primary transition-colors">
+                                    </div>
+                                    <div class="font-label-caps text-[12px] text-primary mb-2 flex items-center gap-2">
+                                        EXPÉRIENCE PRO
+                                    </div>
+                                    <h3 class="font-headline-md text-[24px] mb-2">Technicien Informatique</h3>
+                                    <p class="font-code-snippet text-[12px] text-outline mb-4">ASSET WINGS / GROUPE
+                                        BALLAND, NOUMÉA</p>
+                                    <div
+                                        class="p-6 border border-outline-variant bg-surface-bright shadow-sm transition-colors group-hover:border-primary/50">
+                                        <ul
+                                            class="font-body-base text-[15px] text-on-surface-variant space-y-3 list-none">
+                                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-primary mt-1">play_arrow</span>
+                                                Veille logicielle.</li>
+                                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-primary mt-1">play_arrow</span>
+                                                Suivi des infrastructures numériques, avec une attention particulière
+                                                pour le groupe commercial Balland.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Etape 4 : Météo France (Formation) -->
+                                <div class="timeline-step group min-h-[70vh] flex flex-col justify-center relative"
+                                    data-step="toulouse">
+                                    <div
+                                        class="absolute top-1/2 -translate-y-1/2 -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-surface border-2 border-primary z-10 group-hover:bg-primary transition-colors">
+                                    </div>
+                                    <div class="font-label-caps text-[12px] text-primary mb-2 flex items-center gap-2">
+                                        INTÉGRATION
+                                    </div>
+                                    <h3 class="font-headline-md text-[24px] mb-2">TSI (En formation)</h3>
+                                    <p class="font-code-snippet text-[12px] text-outline mb-4">ENM (ÉCOLE NATIONALE DE
+                                        LA MÉTÉO), TOULOUSE</p>
+                                    <div
+                                        class="p-6 border border-outline-variant bg-surface-bright shadow-sm transition-colors group-hover:border-primary/50">
+                                        <ul
+                                            class="font-body-base text-[15px] text-on-surface-variant space-y-3 list-none">
+                                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-primary mt-1">play_arrow</span>
+                                                Entrée à Météo France.</li>
+                                            <li class="flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-primary mt-1">play_arrow</span>
+                                                Départ pour la métropole pour suivre la formation technique spécialisée
+                                                à l'ENM.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Etape 5 : Météo France (Poste) -->
+                                <div class="timeline-step group min-h-[70vh] flex flex-col justify-center relative"
+                                    data-step="noumea-mf">
+                                    <div
+                                        class="absolute top-1/2 -translate-y-1/2 -left-[41px] md:-left-[57px] flex items-center justify-center w-4 h-4 z-10">
+                                        <span
+                                            class="animate-ping-slow absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75"></span>
+                                        <span
+                                            class="relative inline-flex rounded-full h-4 w-4 bg-surface border-2 border-[#10b981]"></span>
+                                    </div>
+                                    <div
+                                        class="font-label-caps text-[12px] text-[#10b981] bg-[#10b981]/10 border border-[#10b981]/30 px-3 py-1.5 rounded w-max mb-3 flex items-center gap-2 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+                                        POSTE ACTUEL
+                                    </div>
+                                    <h3 class="font-headline-md text-[24px] mb-2 text-[#10b981]">Technicien Supérieur
+                                        (TSI)</h3>
+                                    <p class="font-code-snippet text-[12px] text-outline mb-4">MÉTÉO FRANCE, NOUMÉA</p>
+                                    <div
+                                        class="p-6 border border-[#10b981]/30 bg-surface-bright shadow-sm relative overflow-hidden">
+                                        <!-- Subtile lueur en fond pour accentuer l'étape active -->
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-br from-[#10b981]/5 to-transparent pointer-events-none">
+                                        </div>
+                                        <ul
+                                            class="font-body-base text-[15px] text-on-surface-variant space-y-3 list-none relative z-10">
+                                            <li class="flex items-start gap-2"><span
+                                                    class="material-symbols-outlined text-[16px] text-[#10b981] mt-1">play_arrow</span>
+                                                Retour en Nouvelle-Calédonie pour la prise de poste officielle.</li>
+                                            <li class="flex items-start gap-2"><span
+                                                    class="material-symbols-outlined text-[16px] text-[#10b981] mt-1">play_arrow</span>
+                                                Gestion des systèmes d'information, des infrastructures réseaux et des
+                                                données météorologiques.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Colonne de droite : Carte Interactive (Sticky) -->
+                        <div class="hidden lg:block lg:w-1/2 relative">
+                            <div
+                                class="sticky top-24 border border-outline-variant bg-surface-container-lowest h-[500px] flex flex-col shadow-sm">
+                                <div
+                                    class="border-b border-outline-variant p-4 flex justify-between items-center bg-surface">
+                                    <span class="font-label-caps text-[12px] text-primary">GLOBAL_TRAJECTORY_MAP</span>
+                                    <span id="map-status" class="font-code-snippet text-[10px] text-outline">EN
+                                        ATTENTE...</span>
+                                </div>
+                                <div class="flex-1 relative overflow-hidden bg-surface-container-low">
+                                    <svg class="absolute inset-0 w-full h-full" preserveaspectratio="xMidYMid slice"
+                                        viewbox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Fond de Carte Géographique -->
+                                        <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                                            <!-- France (Mise à l'échelle et décalée à gauche) -->
+                                            <g transform="translate(0, 50) scale(0.6)">
+                                                <path class="text-outline-variant" d="
+                                            M365,422 L536,472 L540,435 L571,410 L650,438 L707,381 L701,373 L689,376 L670,363 L680,349 L663,332 L684,317 L669,300 L675,285 L668,276 L666,266 L649,271 L641,265 L668,218 L688,207 L685,177 L703,135 L590,100 L591,79 L581,90 L568,90 L568,74 L516,38 L486,48 L485,78 L478,86 L440,107 L434,114 L439,118 L425,126 L398,122 L392,103 L371,104 L386,156 L352,156 L343,161 L328,143 L275,157 L273,165 L286,168 L279,179 L285,191 L348,215 L362,235 L357,241 L370,262 L389,274 L391,305 L382,380 Z
+                                            "></path>
+                                            </g>
+
+                                            <!-- Nouvelle-Calédonie (Réduite et centrée à droite) -->
+                                            <g transform="translate(450, 100) scale(0.45)">
+                                                <path class="text-outline-variant" d="
+                                            M290,196 L317,218 L335,239 L352,244 L353,259 L369,273 L372,284 L373,276 L389,290 L394,286 L396,300 L437,325 L442,322 L447,325 L444,330 L476,345 L482,341 L496,359 L524,377 L528,368 L540,378 L543,398 L572,413 L578,410 L584,415 L579,426 L583,434 L589,429 L590,418 L603,419 L600,427 L625,437 L626,444 L637,441 L640,433 L653,445 L665,433 L669,422 L660,407 L646,387 L619,381 L626,377 L616,371 L608,371 L590,348 L569,329 L534,308 L531,314 L518,292 L515,306 L505,285 L497,288 L487,276 L462,271 L464,264 L465,256 L437,236 L437,219 L425,220 L413,206 L415,194 L394,191 L373,177 L358,170 L349,157 L315,136 L319,130 L276,109 L278,120 L270,119 L243,96 L241,112 L232,111 L241,123 L249,116 L259,129 L257,135 L248,132 L268,166 L275,161 L285,183 L293,187 Z
+                                            M669,194 L674,184 L690,184 L693,176 L708,185 L703,192 L706,206 L701,215 L719,221 L718,231 L731,236 L726,242 L726,256 L717,260 L700,242 L688,243 L673,228 L673,220 L665,215 L676,215 L686,208 L690,197 L681,193 Z
+                                            M780,287 L785,295 L784,306 L792,312 L787,321 L804,321 L804,331 L826,326 L827,293 L809,301 L803,290 L804,281 L792,288 L784,285 Z
+                                            M580,190 L595,183 L605,182 L610,167 L605,167 L608,149 L620,145 L606,134 L600,137 L608,143 L602,150 L601,172 L586,184 Z
+                                            M725,468 L727,487 L738,488 L738,477 L744,483 L747,477 L736,468 Z
+                                            M186,41 L178,29 L180,17 L188,33 Z
+                                            "></path>
+                                            </g>
+                                        </g>
+
+                                        <!-- Chemins (Invisibles au départ, animés via JS) -->
+                                        <g fill="none" stroke-width="2" stroke-linecap="round">
+                                            <!-- Aller : Nouméa -> Toulouse (par le haut) -->
+                                            <path
+                                                class="stroke-primary map-line transition-all duration-1000 ease-in-out"
+                                                d="M764,291 Q526,150 288,297" id="line-noumea-toulouse"
+                                                stroke-dasharray="1000" stroke-dashoffset="1000"></path>
+                                            <!-- Retour : Toulouse -> Nouméa (par le bas) -->
+                                            <path
+                                                class="stroke-secondary map-line transition-all duration-1000 ease-in-out"
+                                                d="M288,297 Q526,450 764,291" id="line-toulouse-noumea"
+                                                stroke-dasharray="1000" stroke-dashoffset="1000"></path>
+                                        </g>
+
+                                        <!-- Avion animé -->
+                                        <g id="airplane" class="opacity-0 transition-opacity duration-300">
+                                            <animateMotion id="plane-motion" dur="1s" repeatCount="1" fill="freeze"
+                                                rotate="auto" path="M0,0"></animateMotion>
+                                            <path class="text-primary" fill="currentColor"
+                                                d="M22,16v-2l-8.5-5V3.5c0-0.83-0.67-1.5-1.5-1.5s-1.5,0.67-1.5,1.5V9L2,14v2l8.5-2.5V19L8,20.5V22l4-1l4,1v-1.5L13.5,19v-5.5L22,16z"
+                                                transform="translate(-12, -12) scale(0.8) rotate(90)"></path>
+                                        </g>
+
+                                        <!-- Points géographiques -->
+                                        <g id="point-toulouse"
+                                            class="map-point opacity-30 transition-opacity duration-500"
+                                            transform="translate(288,297)">
+                                            <circle class="text-primary" fill="currentColor" r="6"></circle>
+                                            <circle class="text-primary/80 point-ping hidden animate-ping-slow"
+                                                fill="none" r="14" stroke="currentColor" stroke-width="2"></circle>
+                                            <!-- Anneau statique supplémentaire pour la base du pulse -->
+                                            <circle class="text-primary/30 point-ping hidden" fill="none" r="14"
+                                                stroke="currentColor" stroke-width="1"></circle>
+                                            <text class="font-code-snippet text-[12px] fill-on-surface font-bold"
+                                                x="-30" y="-15">TOULOUSE</text>
+                                        </g>
+
+                                        <g id="point-noumea"
+                                            class="map-point opacity-50 transition-opacity duration-500"
+                                            transform="translate(714,291)">
+                                            <circle class="text-primary" fill="currentColor" r="6"></circle>
+                                            <circle class="text-primary/80 point-ping animate-ping-slow" fill="none"
+                                                r="14" stroke="currentColor" stroke-width="2"></circle>
+                                            <!-- Anneau statique supplémentaire pour la base du pulse -->
+                                            <circle class="text-primary/30 point-ping" fill="none" r="14"
+                                                stroke="currentColor" stroke-width="1"></circle>
+                                            <text class="font-code-snippet text-[12px] fill-on-surface font-bold" x="15"
+                                                y="10">NOUMÉA</text>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- VUE 2 : PROJETS (Repos Index Épuré)             -->
+            <!-- ============================================== -->
+            <div id="view-repos" class="view-section w-full p-margin-mobile md:p-gutter">
+                <div class="max-w-container-max mx-auto w-full">
+                    <!-- Section Header -->
+                    <div class="mb-12 border-b border-outline-variant pb-4">
+                        <h2
+                            class="font-display-lg text-display-lg-mobile md:text-[32px] text-on-background uppercase tracking-tight">
+                            PROJETS</h2>
+                        <p
+                            class="font-body-base text-body-base text-on-surface-variant mt-2 min-h-[50px] md:min-h-[60px]">
+                            Dépôts techniques et archives de réalisations algorithmiques.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-base">
+
+                        <!-- Card 0: easysync -->
+                        <a href="https://galtechdev.github.io/easysync/" target="_blank" rel="noopener noreferrer"
+                            class="flex flex-col bg-surface border border-outline-variant group hover:border-primary transition-colors duration-300 shadow-sm relative overflow-hidden">
+                            <div
+                                class="p-4 border-b border-outline-variant flex justify-between items-start bg-surface-bright">
+                                <div class="flex flex-col gap-1 z-10">
+                                    <h3 class="font-headline-md text-[16px] text-primary uppercase">easysync</h3>
+                                    <span
+                                        class="inline-block px-2 py-0.5 bg-[#eafdf0] text-[#006e0b] border border-[#a1e8af] font-label-caps text-[10px] w-max uppercase">PUBLIC</span>
+                                </div>
+                                <svg class="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 z-10"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col gap-4 z-10">
+                                <p class="font-body-sm text-[14px] text-on-surface-variant">Synchronisation d'Object
+                                    en temps réel pour Python. Transport hybride TCP/UDP, Delta Sync et
+                                    Télémétrie en direct.</p>
+                                <div class="mt-auto">
+                                    <div
+                                        class="font-code-snippet text-[11px] flex flex-wrap gap-x-2 gap-y-2 text-on-surface-variant">
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Python</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">asyncio</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Networking</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- Card 1: py-osrm-backend -->
+                        <a href="https://galtechdev.github.io/py-osrm-backend/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex flex-col bg-surface border border-outline-variant group hover:border-primary transition-colors duration-300 shadow-sm relative overflow-hidden">
+                            <div
+                                class="p-4 border-b border-outline-variant flex justify-between items-start bg-surface-bright">
+                                <div class="flex flex-col gap-1 z-10">
+                                    <h3 class="font-headline-md text-[16px] text-primary uppercase">py-osrm-backend</h3>
+                                    <span
+                                        class="inline-block px-2 py-0.5 bg-[#eafdf0] text-[#006e0b] border border-[#a1e8af] font-label-caps text-[10px] w-max uppercase">PUBLIC</span>
+                                </div>
+                                <svg class="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 z-10"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col gap-4 z-10">
+                                <p class="font-body-sm text-[14px] text-on-surface-variant">Une implementation en Python
+                                    du backend OSRM (Open Source Routing Machine)</p>
+                                <div class="mt-auto">
+                                    <div
+                                        class="font-code-snippet text-[11px] flex flex-wrap gap-x-2 gap-y-2 text-on-surface-variant">
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Python</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Flask</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">pypi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Card 2: OpenVM -->
+                        <a href="https://galtechdev.github.io/OpenVM/" target="_blank" rel="noopener noreferrer"
+                            class="flex flex-col bg-surface border border-outline-variant group hover:border-primary transition-colors duration-300 shadow-sm relative overflow-hidden">
+                            <div
+                                class="p-4 border-b border-outline-variant flex justify-between items-start bg-surface-bright">
+                                <div class="flex flex-col gap-1 z-10">
+                                    <h3 class="font-headline-md text-[16px] text-primary uppercase">OpenVM</h3>
+                                    <span
+                                        class="inline-block px-2 py-0.5 bg-[#eafdf0] text-[#006e0b] border border-[#a1e8af] font-label-caps text-[10px] w-max uppercase">PUBLIC</span>
+                                </div>
+                                <svg class="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 z-10"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col gap-4 z-10">
+                                <p class="font-body-sm text-[14px] text-on-surface-variant">Plateforme web de gestion de
+                                    machines virtuelles Docker avec terminal SSH intégré, explorateur de fichiers et
+                                    panneau d'administration complet.</p>
+                                <div class="mt-auto">
+                                    <div
+                                        class="font-code-snippet text-[11px] flex flex-wrap gap-x-2 gap-y-2 text-on-surface-variant">
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Python</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Flask</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Javascript</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Docker</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">SQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Card 3: ABM-Temp-Analyser -->
+                        <a href="https://galtechdev.github.io/ABM-Temp-Analyser/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex flex-col bg-surface border border-outline-variant group hover:border-primary transition-colors duration-300 shadow-sm relative overflow-hidden">
+                            <div
+                                class="p-4 border-b border-outline-variant flex justify-between items-start bg-surface-bright">
+                                <div class="flex flex-col gap-1 z-10">
+                                    <h3 class="font-headline-md text-[16px] text-primary uppercase">ABM-Temp-Analyser
+                                    </h3>
+                                    <span
+                                        class="inline-block px-2 py-0.5 bg-[#eafdf0] text-[#006e0b] border border-[#a1e8af] font-label-caps text-[10px] w-max uppercase">PUBLIC</span>
+                                </div>
+                                <svg class="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 z-10"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col gap-4 z-10">
+                                <p class="font-body-sm text-[14px] text-on-surface-variant">Chaîne de mesure de
+                                    température pour colis avec glace carbonique.</p>
+                                <div class="mt-auto">
+                                    <div
+                                        class="font-code-snippet text-[11px] flex flex-wrap gap-x-2 gap-y-2 text-on-surface-variant">
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">ESP32</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Python</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Flask</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">JavaScript</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Chart.js</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Card 4: UnderStar-OS -->
+                        <a href="https://github.com/GalTechDev/UnderStar-OS" target="_blank" rel="noopener noreferrer"
+                            class="flex flex-col bg-surface border border-outline-variant group hover:border-primary transition-colors duration-300 shadow-sm relative overflow-hidden">
+                            <div
+                                class="p-4 border-b border-outline-variant flex justify-between items-start bg-surface-bright">
+                                <div class="flex flex-col gap-1 z-10">
+                                    <h3 class="font-headline-md text-[16px] text-primary uppercase">UnderStar-OS</h3>
+                                    <span
+                                        class="inline-block px-2 py-0.5 bg-[#eafdf0] text-[#006e0b] border border-[#a1e8af] font-label-caps text-[10px] w-max uppercase">PUBLIC</span>
+                                </div>
+                                <svg class="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 z-10"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col gap-4 z-10">
+                                <p class="font-body-sm text-[14px] text-on-surface-variant">Bot Discord dynamique.</p>
+                                <div class="mt-auto">
+                                    <div
+                                        class="font-code-snippet text-[11px] flex flex-wrap gap-x-2 gap-y-2 text-on-surface-variant">
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Python</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">API
+                                            Discord</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Card 5: smbCloud -->
+                        <a href="" target="_blank" rel="noopener noreferrer"
+                            class="flex flex-col bg-surface border border-outline-variant group hover:border-primary transition-colors duration-300 shadow-sm relative overflow-hidden">
+                            <div
+                                class="p-4 border-b border-outline-variant flex justify-between items-start bg-surface-bright">
+                                <div class="flex flex-col gap-1 z-10">
+                                    <h3 class="font-headline-md text-[16px] text-primary uppercase">smbCloud</h3>
+                                    <span
+                                        class="inline-block px-2 py-0.5 bg-[#eafdf0] text-[#006e0b] border border-[#a1e8af] font-label-caps text-[10px] w-max uppercase">PUBLIC</span>
+                                </div>
+                                <svg class="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 z-10"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col gap-4 z-10">
+                                <p class="font-body-sm text-[14px] text-on-surface-variant">Interface web de gestion de
+                                    fichiers distribuée s'appuyant sur un réseau de nœuds de stockage.</p>
+                                <div class="mt-auto">
+                                    <div
+                                        class="font-code-snippet text-[11px] flex flex-wrap gap-x-2 gap-y-2 text-on-surface-variant">
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Python</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Flask</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">JavaScript</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Card 6: DataGate -->
+                        <a href="https://datagate.unc.nc/datagate/views/home.php" target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex flex-col bg-surface border border-outline-variant group hover:border-primary transition-colors duration-300 shadow-sm relative overflow-hidden">
+                            <div
+                                class="p-4 border-b border-outline-variant flex justify-between items-start bg-surface-bright">
+                                <div class="flex flex-col gap-1 z-10">
+                                    <h3 class="font-headline-md text-[16px] text-primary uppercase">DataGate</h3>
+                                    <span
+                                        class="inline-block px-2 py-0.5 bg-[#eafdf0] text-[#006e0b] border border-[#a1e8af] font-label-caps text-[10px] w-max uppercase">PUBLIC</span>
+                                </div>
+                                <svg class="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 z-10"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col gap-4 z-10">
+                                <p class="font-body-sm text-[14px] text-on-surface-variant">Une application web de
+                                    gestion de données de recherches.</p>
+                                <div class="mt-auto">
+                                    <div
+                                        class="font-code-snippet text-[11px] flex flex-wrap gap-x-2 gap-y-2 text-on-surface-variant">
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">PHP</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">PostgreSQL</span>
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">CAS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Card 7: Hot Import -->
+                        <a href="https://pypi.org/project/hot-import/" target="_blank" rel="noopener noreferrer"
+                            class="flex flex-col bg-surface border border-outline-variant group hover:border-primary transition-colors duration-300 shadow-sm relative overflow-hidden">
+                            <div
+                                class="p-4 border-b border-outline-variant flex justify-between items-start bg-surface-bright">
+                                <div class="flex flex-col gap-1 z-10">
+                                    <h3 class="font-headline-md text-[16px] text-primary uppercase">Hot Import</h3>
+                                    <span
+                                        class="inline-block px-2 py-0.5 bg-[#eafdf0] text-[#006e0b] border border-[#a1e8af] font-label-caps text-[10px] w-max uppercase">PUBLIC</span>
+                                </div>
+                                <svg class="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 z-10"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                            <div class="p-4 flex-1 flex flex-col gap-4 z-10">
+                                <p class="font-body-sm text-[14px] text-on-surface-variant">Une librairie python de
+                                    rechargement de module sans interuption d'execution.</p>
+                                <div class="mt-auto">
+                                    <div
+                                        class="font-code-snippet text-[11px] flex flex-wrap gap-x-2 gap-y-2 text-on-surface-variant">
+                                        <span
+                                            class="border border-outline-variant px-2 py-1 bg-surface-bright uppercase">Python</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- VUE 3 : JOURNAL (Mini-Blog Feed)                -->
+            <!-- ============================================== -->
+            <div id="view-blog" class="view-section w-full p-margin-mobile md:p-gutter">
+                <div class="max-w-3xl mx-auto w-full">
+                    <!-- Section Header -->
+                    <div class="mb-12 border-b border-outline-variant pb-4">
+                        <h2
+                            class="font-display-lg text-display-lg-mobile md:text-[32px] text-on-background uppercase tracking-tight">
+                            JOURNAL DE BORD</h2>
+                        <p
+                            class="font-body-base text-body-base text-on-surface-variant mt-2 min-h-[50px] md:min-h-[60px]">
+                            Archives photographiques : voyages, événements et réalisations quotidiennes.</p>
+                    </div>
+
+                    <!-- Feed Container -->
+                    <div class="space-y-12 pb-24">
+
+                        <!-- Post 1 -->
+                        <article
+                            class="border border-outline-variant bg-surface-container-lowest shadow-sm group cursor-pointer hover:border-primary transition-colors"
+                            data-article-url="articles/station-meteo.html">
+                            <div
+                                class="p-4 border-b border-outline-variant bg-surface-bright flex justify-between items-center group-hover:bg-surface-container-low transition-colors">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-outline text-[18px]">calendar_month</span>
+                                    <span class="font-label-caps text-[12px] text-on-surface">12 MAI 2026</span>
+                                </div>
+                                <span
+                                    class="font-code-snippet text-[10px] text-primary border border-primary px-2 py-0.5">TERRAIN
+                                    / HARDWARE</span>
+                            </div>
+                            <div class="w-full h-[300px] md:h-[400px] bg-surface-container relative overflow-hidden">
+                                <!-- Remplacez src par votre propre photo (ex: assets/photo_radar.jpg) -->
+                                <img src="/assets/pulsia.jpeg" alt="Station Météo"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            </div>
+                            <div class="p-6">
+                                <h3
+                                    class="font-headline-md text-[20px] mb-2 text-on-surface group-hover:text-primary transition-colors">
+                                    TSI : Maintenir le Réseau d'Observation en Nouvelle-Calédonie</h3>
+                                <p class="font-body-base text-[15px] text-on-surface-variant">Déploiement, maintenance
+                                    et qualité de la mesure. Plongez dans le quotidien d'un Technicien Supérieur sur des
+                                    sites miniers, en brousse ou sur les îles.</p>
+                            </div>
+                        </article>
+
+                        <!-- Post 2 -->
+                        <article
+                            class="border border-outline-variant bg-surface-container-lowest shadow-sm group cursor-pointer hover:border-primary transition-colors"
+                            data-article-url="articles/easysync.html">
+                            <div
+                                class="p-4 border-b border-outline-variant bg-surface-bright flex justify-between items-center group-hover:bg-surface-container-low transition-colors">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-outline text-[18px]">calendar_month</span>
+                                    <span class="font-label-caps text-[12px] text-on-surface">4 AVRIL 2026</span>
+                                </div>
+                                <span
+                                    class="font-code-snippet text-[10px] text-secondary border border-secondary px-2 py-0.5">DÉVELOPPEMENT</span>
+                            </div>
+                            <div class="w-full h-[300px] md:h-[400px] bg-surface-container relative overflow-hidden">
+                                <!-- Remplacez src par votre propre photo (ex: assets/photo_easysync.jpg) -->
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Code Python EasySync"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            </div>
+                            <div class="p-6">
+                                <h3
+                                    class="font-headline-md text-[20px] mb-2 text-on-surface group-hover:text-primary transition-colors">
+                                    Pourquoi j'ai créé EasySync pour Python</h3>
+                                <p class="font-body-base text-[15px] text-on-surface-variant">Retour technique sur la
+                                    genèse d'EasySync. Face à la problématique de la synchronisation d'état en temps
+                                    réel pour des systèmes distribués, j'ai voulu concevoir un outil robuste qui
+                                    simplifie la vie des développeurs Python.</p>
+                            </div>
+                        </article>
+
+                        <!-- Post 3 -->
+                        <article
+                            class="border border-outline-variant bg-surface-container-lowest shadow-sm group cursor-pointer hover:border-primary transition-colors"
+                            data-article-url="articles/parcours.html">
+                            <div
+                                class="p-4 border-b border-outline-variant bg-surface-bright flex justify-between items-center group-hover:bg-surface-container-low transition-colors">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-outline text-[18px]">calendar_month</span>
+                                    <span class="font-label-caps text-[12px] text-on-surface">20 FÉVRIER 2026</span>
+                                </div>
+                                <span
+                                    class="font-code-snippet text-[10px] text-tertiary border border-tertiary px-2 py-0.5">PARCOURS</span>
+                            </div>
+                            <div class="w-full h-[300px] md:h-[400px] bg-surface-container relative overflow-hidden">
+                                <!-- Remplacez src par votre propre photo (ex: assets/photo_parcours.jpg) -->
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Université et Tech"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            </div>
+                            <div class="p-6">
+                                <h3
+                                    class="font-headline-md text-[20px] mb-2 text-on-surface group-hover:text-primary transition-colors">
+                                    De la Licence Informatique à l'Instrumentation</h3>
+                                <p class="font-body-base text-[15px] text-on-surface-variant">Une réflexion personnelle
+                                    sur mon parcours hybride. Avoir une formation initiale de développeur obtenue à
+                                    l'Université de Nouvelle-Calédonie me donne un avantage unique pour comprendre en
+                                    profondeur les systèmes d'observation météo et leurs données.</p>
+                            </div>
+                        </article>
+
+                        <!-- Post 4 -->
+                        <article
+                            class="border border-outline-variant bg-surface-container-lowest shadow-sm group cursor-pointer hover:border-primary transition-colors"
+                            data-article-url="articles/monitoring.html">
+                            <div
+                                class="p-4 border-b border-outline-variant bg-surface-bright flex justify-between items-center group-hover:bg-surface-container-low transition-colors">
+                                <div class="flex items-center gap-2">
+                                    <span
+                                        class="material-symbols-outlined text-outline text-[18px]">calendar_month</span>
+                                    <span class="font-label-caps text-[12px] text-on-surface">10 JANVIER 2026</span>
+                                </div>
+                                <span
+                                    class="font-code-snippet text-[10px] text-[#006df8] border border-[#006df8] px-2 py-0.5">PROJET
+                                    DE FIN D'ÉTUDES</span>
+                            </div>
+                            <div class="w-full h-[300px] md:h-[400px] bg-surface-container relative overflow-hidden">
+                                <!-- Remplacez src par votre propre photo (ex: assets/photo_monitoring.jpg) -->
+                                <img src="/assets/colis.jpeg" alt="Dashboard Data"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                            </div>
+                            <div class="p-6">
+                                <h3
+                                    class="font-headline-md text-[20px] mb-2 text-on-surface group-hover:text-primary transition-colors">
+                                    Conception d'une Chaîne d'Acquisition de A à Z : L'Expérience ABM</h3>
+                                <p class="font-body-base text-[15px] text-on-surface-variant">Retour sur la création
+                                    d'un système de monitoring thermique à -78.5°C pour des colis sous glace
+                                    carbonique. De la soudure d'un ESP32 au backend en Python Flask.</p>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- VUE 4 : LECTURE D'ARTICLE                      -->
+            <!-- ============================================== -->
+            <div id="view-article" class="view-section w-full p-margin-mobile md:p-gutter relative min-h-screen">
+
+                <!-- Bouton Retour -->
+                <div class="max-w-4xl mx-auto mb-8 sticky top-[80px] z-20">
+                    <button id="btn-back-blog"
+                        class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors bg-surface/90 backdrop-blur-sm px-4 py-2 border border-outline-variant shadow-sm">
+                        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                        <span class="font-label-caps text-[12px]">RETOUR AU JOURNAL</span>
+                    </button>
+                </div>
+
+                <!-- Conteneur Injecté -->
+                <div id="article-content" class="w-full">
+                    <!-- Le HTML récupéré via fetch ira ici -->
+                </div>
+            </div>
+
+
+            <!-- ============================================== -->
+            <!-- GLOBAL FOOTER                                  -->
+            <!-- ============================================== -->
+            <footer id="global-footer" class="w-full p-4 text-center mt-12 bg-surface border-t border-outline-variant"
+                style="display: none;">
+                <p class="font-body-sm text-on-surface-variant">© 2026 Maxence MOREAU.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- OVERLAY DU BADGE DE CONTACT 3D                 -->
+    <!-- ============================================== -->
+    <div id="contact-overlay" class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0 bg-black/60 backdrop-blur-sm flex justify-center perspective-[1000px]">
+        <!-- La corde (SVG) -->
+        <svg id="badge-rope-svg" class="absolute inset-0 w-full h-full pointer-events-none z-10">
+            <!-- La ligne sera mise à jour par JS. x1/y1 = haut, x2/y2 = attache du badge -->
+            <line id="badge-rope-line" x1="50%" y1="-50" x2="50%" y2="200" stroke="#444" stroke-width="4" />
+        </svg>
+
+        <!-- Le Conteneur du badge (qui va balancer) -->
+        <div id="badge-physics-container" class="absolute pointer-events-none origin-top" style="top: -800px; left: 50%; transform: translateX(-50%);">
+            <!-- Le Badge interactif (Drag & Drop) -->
+            <div id="contact-badge" class="w-[300px] bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden flex flex-col pointer-events-auto cursor-grab hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-shadow duration-300" style="transform-style: preserve-3d;">
+                
+                <!-- Bande colorée en haut -->
+                <div class="h-4 bg-primary w-full"></div>
+                
+                <!-- Trou d'attache -->
+                <div class="absolute top-2 left-1/2 -translate-x-1/2 w-16 h-3 border border-outline rounded-full bg-background flex items-center justify-center">
+                    <div class="w-12 h-1 bg-surface-container rounded-full"></div>
+                </div>
+
+                <div class="flex-1 p-6 flex flex-col items-center mt-4">
+                    <!-- Photo -->
+                    <div class="w-24 h-24 rounded-full border-4 border-primary bg-surface-container-highest overflow-hidden mb-4 shadow-inner pointer-events-none">
+                        <img src="assets/profil.jpeg" alt="Maxence MOREAU" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Identité -->
+                    <h2 class="font-display-sm text-on-surface text-center font-bold pointer-events-none">Maxence MOREAU</h2>
+                    <p class="font-label-md text-primary tracking-widest uppercase mt-1 text-center pointer-events-none">Technicien / Dev</p>
+                    <p class="font-body-sm text-on-surface-variant text-center mt-2 pointer-events-none">Météo France</p>
+
+                    <div class="w-full border-t border-outline-variant my-6 pointer-events-none"></div>
+
+                    <!-- Boutons Contact -->
+                    <div class="flex flex-col gap-3 w-full">
+                        <a href="mailto:maxence.moreau@galtech.cc" class="flex items-center gap-3 bg-surface-container hover:bg-primary-container hover:text-on-primary-container p-3 rounded-lg transition-colors group">
+                            <span class="material-symbols-outlined text-primary group-hover:text-on-primary-container">mail</span>
+                            <span class="font-label-md">Email</span>
+                        </a>
+                        <a href="https://github.com/GalTechDev" target="_blank" class="flex items-center gap-3 bg-surface-container hover:bg-[#24292e] hover:text-white p-3 rounded-lg transition-colors group">
+                            <span class="material-symbols-outlined text-on-surface group-hover:text-white">code</span>
+                            <span class="font-label-md">GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/maxence-moreau-709b5b23b" target="_blank" class="flex items-center gap-3 bg-surface-container hover:bg-[#0a66c2] hover:text-white p-3 rounded-lg transition-colors group">
+                            <span class="material-symbols-outlined text-on-surface group-hover:text-white">work</span>
+                            <span class="font-label-md">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer du badge (Code barre déco) -->
+                <div class="h-12 bg-surface-container-low w-full flex items-center justify-center border-t border-outline-variant px-4 pointer-events-none">
+                    <div class="w-full h-6 flex gap-1 opacity-50 justify-between">
+                        <div class="w-1 h-full bg-on-surface"></div>
+                        <div class="w-2 h-full bg-on-surface"></div>
+                        <div class="w-1 h-full bg-on-surface"></div>
+                        <div class="w-3 h-full bg-on-surface"></div>
+                        <div class="w-1 h-full bg-on-surface"></div>
+                        <div class="w-1 h-full bg-on-surface"></div>
+                        <div class="w-2 h-full bg-on-surface"></div>
+                        <div class="w-4 h-full bg-on-surface"></div>
+                        <div class="w-1 h-full bg-on-surface"></div>
+                        <div class="w-1 h-full bg-on-surface"></div>
+                        <div class="w-3 h-full bg-on-surface"></div>
+                        <div class="w-1 h-full bg-on-surface"></div>
+                        <div class="w-2 h-full bg-on-surface"></div>
+                        <div class="w-1 h-full bg-on-surface"></div>
+                        <div class="w-2 h-full bg-on-surface"></div>
+                        <div class="w-1 h-full bg-on-surface"></div>
+                    </div>
+                </div>
+                
+                <!-- Overlay de reflet (animé par JS) -->
+                <div id="badge-glare" class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/40 to-white/0 opacity-0 pointer-events-none mix-blend-overlay transition-opacity duration-300"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load GSAP (Optionnel, utile pour des animations si besoin, sinon on garde requestAnimationFrame) -->
+    <script src="/app.js?v=4"></script>
+</body>
+
+</html>

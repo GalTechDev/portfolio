@@ -1,0 +1,99 @@
+<div class="max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-8">
+        <div class="flex items-center gap-4 mb-4">
+            <span
+                class="font-code-snippet text-[12px] text-secondary border border-secondary px-3 py-1">DÉVELOPPEMENT</span>
+            <span class="font-label-caps text-[14px] text-on-surface-variant flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                4 AVRIL 2026
+            </span>
+        </div>
+        <h1
+            class="font-display-lg text-[32px] md:text-[48px] text-on-background uppercase tracking-tight leading-tight mb-6">
+            Pourquoi j'ai créé EasySync pour Python
+        </h1>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="w-full h-[400px] md:h-[500px] mb-12 border-4 border-outline-variant shadow-lg relative overflow-hidden bg-surface-container">
+        <!-- Remplacez src par votre propre photo -->
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Code Python EasySync" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Article Body -->
+    <div class="font-body-base text-[16px] md:text-[18px] text-on-surface leading-relaxed space-y-8 pb-12">
+        <p class="text-[20px] font-medium text-primary">
+            La programmation réseau est souvent vue comme une bête noire. Avec EasySync, j'ai voulu créer une librairie où synchroniser des données entre plusieurs machines redevient aussi simple qu'affecter une variable.
+        </p>
+
+        <h2
+            class="font-headline-md text-[24px] text-on-background uppercase mt-8 mb-4 border-b border-outline-variant pb-2">
+            La "phobie" du réseau</h2>
+        <p>
+            L'histoire de ce projet part d'un constat très simple : avec mes amis développeurs, nous évitions systématiquement de nous lancer dans des projets en réseau. La charge de travail que représente la programmation réseau (gérer les sockets, écouter les événements, traiter les déconnexions) ajoutait une énorme friction.
+        </p>
+        <p>
+            Le simple fait de vouloir synchroniser une malheureuse variable pouvait rapidement se transformer en usine à gaz, avec une gestion des erreurs extrêmement fastidieuse. Il fallait une solution plus intelligente.
+        </p>
+
+        <h2
+            class="font-headline-md text-[24px] text-on-background uppercase mt-8 mb-4 border-b border-outline-variant pb-2">
+            L'abstraction comme solution absolue</h2>
+        <p>
+            C'est là qu'est née l'idée d'<strong>EasySync</strong>. Le postulat est le suivant : le développeur ne devrait avoir à coder <strong class="text-on-surface">que la structure de l'objet qu'il souhaite synchroniser</strong>. 
+        </p>
+        <p>
+            Une fois la structure définie, la librairie s'occupe du reste. La magie opère en arrière-plan : plus besoin de gérer des sockets ou des événements réseau à la main. Vous modifiez votre objet d'un côté, il se met à jour de l'autre de manière totalement transparente.
+        </p>
+
+        <div class="bg-surface-container-lowest border-l-4 border-secondary p-6 shadow-sm my-8 font-jetbrains">
+            <h4 class="font-code-snippet text-[14px] text-secondary uppercase mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">code</span>
+                Exemple de simplicité avec EasySync
+            </h4>
+            <div class="bg-surface-container p-4 rounded overflow-x-auto text-[13px] text-on-surface-variant">
+<pre><code class="language-python">from easysync import SyncedObject, SyncServer, connect
+
+# 1. On lance le serveur en tâche de fond
+server = SyncServer(port=5000)
+server.start_thread()
+
+# 2. On connecte un client
+client = connect("127.0.0.1", 5000)
+
+# 3. On déclare l'objet à synchroniser
+@SyncedObject(client)
+class GameState:
+    def __init__(self):
+        self.score = 0
+        self.players = []
+
+state = GameState()
+
+# C'est tout ! Les modifications sont propagées
+# instantanément à tous les clients connectés.
+state.score = 42           
+state.players.append("A")  
+</code></pre>
+            </div>
+        </div>
+
+        <h2
+            class="font-headline-md text-[24px] text-on-background uppercase mt-8 mb-4 border-b border-outline-variant pb-2">
+            Cas d'usage : De Pygame à l'IA</h2>
+        <p>
+            En pratique, cette librairie m'a permis de réaliser des projets qui m'auraient découragé auparavant. Par exemple, je l'ai utilisée pour créer des <strong class="text-on-surface">démos techniques en réseau avec Pygame</strong> (où la position des joueurs est simplement une variable partagée).
+        </p>
+        <p>
+            Un autre domaine où EasySync brille particulièrement est l'Intelligence Artificielle. Lorsque l'on fait de l'entraînement de modèles avec plusieurs machines qui collaborent, synchroniser l'état global de l'entraînement devient un jeu d'enfant.
+        </p>
+
+        <h2
+            class="font-headline-md text-[24px] text-on-background uppercase mt-8 mb-4 border-b border-outline-variant pb-2">
+            Conclusion</h2>
+        <p>
+            Créer un outil pour les autres développeurs (et pour moi-même) est extrêmement gratifiant. L'abstraction de la couche réseau permet de redonner de l'élan à la création.
+        </p>
+    </div>
+</div>
